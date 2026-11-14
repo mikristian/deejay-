@@ -1,0 +1,59 @@
+/* Streamlined, persistent browsing mode; all transport/audio nodes stay mounted. */
+.shell.library-focus-mode { --focus-deck-height: 82px; }
+.shell.library-focus-mode > .performance { padding: 3px 10px 4px !important; overflow: hidden; }
+.shell.library-focus-mode > .performance .performance-top,
+.shell.library-focus-mode > .performance .pc-effects,
+.shell.library-focus-mode > .performance .pc-headphone-bar,
+.shell.library-focus-mode > .performance .mini-mixer,
+.shell.library-focus-mode > .performance .pc-deck-extra,
+.shell.library-focus-mode > .performance .deck-heading,
+.shell.library-focus-mode > .performance .deck-tempo,
+.shell.library-focus-mode > .performance .deck-actions,
+.shell.library-focus-mode > .performance .deck-footer #deck-one-source,
+.shell.library-focus-mode > .performance .deck-footer #deck-two-source,
+.shell.library-focus-mode > .performance .deck-note,
+.shell.library-focus-mode > .performance .top-decks-wave-strip { display: none !important; }
+.shell.library-focus-mode > .performance .deck-pair { display:grid !important; grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important; gap:8px !important; }
+.shell.library-focus-mode > .performance .deck { display:flex !important; flex-direction:column; gap:2px; padding:3px 8px !important; min-height:0; height:auto !important; border-radius:4px; }
+.shell.library-focus-mode > .performance .deck-info { display:flex !important; min-height:0 !important; gap:7px; align-items:center; }
+.shell.library-focus-mode > .performance .deck-cover,
+.shell.library-focus-mode > .performance .deck-cover .artwork { width:29px !important; height:29px !important; }
+.shell.library-focus-mode > .performance .deck-description { min-width:0; overflow:hidden; }
+.shell.library-focus-mode > .performance .deck-description strong,
+.shell.library-focus-mode > .performance .deck-description span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; display:block; }
+.shell.library-focus-mode > .performance .deck > .deck-wave { display:block !important; width:100%; height:19px !important; min-height:19px; margin:0 !important; background:#05070b; }
+.shell.library-focus-mode > .performance .deck > .top-decks-scrub-row { display:flex !important; grid-row:auto !important; width:100%; height:19px !important; min-height:19px !important; margin:0 !important; align-items:center; }
+.shell.library-focus-mode > .performance .deck > .top-decks-scrub-row > :not(canvas):not(.top-decks-mini-position) { flex-shrink:0; }
+.shell.library-focus-mode > .performance .deck-footer { display:none !important; }
+.shell.library-focus-mode > .main { display:flex; flex-direction:column; min-height:0; overflow:hidden; }
+.shell.library-focus-mode > .main > .topbar { flex:0 0 auto; }
+.shell.library-focus-mode > .main > .studio-launcher,
+.shell.library-focus-mode > .main > .studio-panel,
+.shell.library-focus-mode > .main > .hero,
+.shell.library-focus-mode > .main > .browse-gallery { display:none !important; }
+.shell.library-focus-mode > .main > .work-area:not([hidden]) { flex:1 1 0; min-height:0; overflow:hidden; padding:5px 10px 7px; }
+.shell.library-focus-mode > .main .section-heading { margin:0 0 3px; }
+.shell.library-focus-mode > .main .filters { margin:2px 0 4px; }
+.shell.library-focus-mode > .main .table-container { min-height:0; flex:1 1 0; }
+.shell.library-focus-mode > .main .virtual-scroller { height:0 !important; min-height:0 !important; flex:1 1 0 !important; overflow-y:auto; }
+.shell.library-focus-mode > .inspector { display:none !important; }
+.shell.library-focus-mode > .harmonic-rail { display:none !important; }
+.shell.library-focus-mode:has(> .harmonic-rail) { grid-template-rows:auto 0 minmax(0,1fr) 70px; }
+#library-focus-toggle { padding:5px 9px; border:1px solid #456481; background:#17293a; color:#d9eafe; border-radius:5px; font:700 10px/16px system-ui,sans-serif; white-space:nowrap; cursor:pointer; }
+#library-focus-toggle:hover,#library-focus-toggle[aria-pressed="true"] { background:#245078; color:#fff; border-color:#6ba2d0; }
+#library-focus-toggle:focus-visible { outline:2px solid #9ad8ff; outline-offset:2px; }
+#library-focus-exit[hidden] { display:none !important; }
+#library-focus-exit { position:absolute; top:3px; right:10px; z-index:14; padding:5px 9px; border:1px solid #577596; border-radius:4px; background:#15283b; color:#e5f2ff; font:700 10px/16px system-ui,sans-serif; cursor:pointer; box-shadow:0 1px 5px #0004; }
+#library-focus-exit:hover { background:#204266; }
+#library-focus-exit:focus-visible { outline:2px solid #9ad8ff; outline-offset:2px; }
+.shell.library-focus-mode > .main { position:relative; }
+.shell.library-focus-mode > .main > .topbar { padding-right:190px !important; }
+.shell.library-focus-mode #library-focus-toggle { display:none; }
+@media (max-width:760px) {
+  .shell.library-focus-mode > .performance .deck-pair { gap:3px !important; }
+  .shell.library-focus-mode > .performance .deck { padding:4px !important; }
+  .shell.library-focus-mode > .performance .deck-cover { width:23px !important; height:23px !important; }
+  .shell.library-focus-mode > .performance .deck-cover .artwork { width:23px !important; height:23px !important; }
+  .shell.library-focus-mode > .main > .topbar { padding-right:110px !important; }
+  #library-focus-exit { font-size:9px; max-width:105px; white-space:normal; line-height:12px; }
+}

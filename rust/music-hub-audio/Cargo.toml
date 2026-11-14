@@ -1,0 +1,10 @@
+[package]
+name = "music-hub-audio"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+cpal = "=0.15.3"
+puremp3 = "=0.1.0"
+serde_json = "1"
+crossbeam-channel = "=0.5.17"

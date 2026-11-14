@@ -1,0 +1,102 @@
+/* One reliable library scroll surface, with explicit scrollbar feedback. */
+.shell>.main .work-area{min-height:0;overflow:hidden}
+.shell>.main .table-container{min-height:0;overflow:hidden}
+.shell>.main .virtual-scroller{min-height:0;height:0;flex:1 1 0;overflow-y:scroll;overflow-x:hidden;overscroll-behavior-y:auto;scrollbar-gutter:stable;scrollbar-width:auto;scrollbar-color:#54677e #111820;overflow-anchor:none}
+.shell>.main .virtual-scroller::-webkit-scrollbar{width:11px}
+.shell>.main .virtual-scroller::-webkit-scrollbar-track{background:#111820}
+.shell>.main .virtual-scroller::-webkit-scrollbar-thumb{background:#54677e;border:3px solid #111820;border-radius:7px;min-height:32px}
+.shell>.main .row-wave-button{background:#05070c;border:1px solid #344254;border-radius:2px}
+.shell>.main .row-wave-button:hover{border-color:#62baff;box-shadow:0 0 0 1px #62baff33}
+.shell>.main .row-wave-button canvas{width:100%;height:100%;image-rendering:auto}
+.shell>.performance .deck-wave{border-bottom:1px solid #34465c;background:#05070c}
+.shell>.performance .top-decks-wave-strip{background:#030509;border-color:#354155}
+.shell>.performance .top-decks-wave-style{padding:3px 7px;min-height:22px;border:1px solid #345775;border-radius:3px;background:#15273b;color:#cee7ff;font:700 9px/13px system-ui,sans-serif;letter-spacing:.2px;cursor:pointer;white-space:nowrap;max-width:132px;overflow:hidden;text-overflow:ellipsis}
+.shell>.performance .top-decks-wave-style[aria-pressed="true"]{background:#254a75;border-color:#4a8ac9;color:#fff}
+.shell>.performance .top-decks-wave-style:hover{background:#284c6d}
+.shell>.performance .top-decks-wave-style:focus-visible{outline:2px solid #69aeff;outline-offset:2px}
+@media(max-width:650px){.shell>.performance .top-decks-wave-style{font-size:8px;padding:2px 4px;min-height:19px;max-width:85px}}
+/* The mini wave contains the thin play-position line; the control row shows
+   play and time only. The keyboard slider stays off-screen for accessibility. */
+.shell>.performance .deck>.top-decks-scrub-row{display:flex;min-width:0;max-width:100%;height:22px;overflow:hidden;gap:4px;margin:1px 0 3px}
+.shell>.performance .deck>.top-decks-scrub-row input{position:absolute;width:1px;min-width:0;height:1px;overflow:hidden;clip-path:inset(50%);opacity:0}
+.shell>.performance .deck>.top-decks-scrub-row .top-decks-scrub-duration::before{content:'/ ';color:#8091a6}
+.shell>.performance .deck>.top-decks-mini-position[hidden]{display:none}
+.shell>.performance .deck>.top-decks-scrub-row .top-decks-scrub-current,
+.shell>.performance .deck>.top-decks-scrub-row .top-decks-scrub-duration{font-variant-numeric:tabular-nums}
+.shell>.performance .deck>.top-decks-scrub-row button:hover:not(:disabled){background:#285077!important}
+.shell>.performance .deck>.top-decks-scrub-row button:focus-visible{outline:2px solid #a6ccfa}
+.shell>.performance .pc-transport .pc-transport-play:not(:disabled){cursor:pointer;filter:saturate(1.15);opacity:1}
+.shell>.performance .pc-transport .pc-transport-play:focus-visible{outline:2px solid #9ef8b7;outline-offset:2px}
+.shell>.performance:not(.expanded) .deck{grid-template-rows:14px 26px 28px 22px 65px 18px!important}
+.shell>.performance:not(.expanded) .deck>.top-decks-scrub-row{grid-row:4}
+.shell>.performance:not(.expanded) .deck>.pc-deck-extra{grid-row:5}
+.shell>.performance .mini-mixer>.top-decks-local-mix{display:flex;flex-direction:column;align-items:center;gap:2px;width:100%;min-width:0;margin:2px 0 3px}
+.shell>.performance .local-mix-label{font-size:8px;line-height:10px;letter-spacing:.08em;color:#c6dbef;font-weight:750}
+.shell>.performance .top-decks-local-mix input{width:94%;accent-color:#f6fbff;cursor:pointer;height:16px;min-width:0}
+.shell>.performance .local-mix-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:2px;width:100%}
+.shell>.performance .local-mix-actions button{background:#14442e;border:1px solid #357c51;border-radius:3px;color:#b8ffd4;padding:2px 3px;min-height:20px;font:700 8px system-ui,sans-serif;cursor:pointer}
+.shell>.performance .local-mix-actions button:hover{background:#1a6343}
+.shell>.performance .local-mix-actions button:focus-visible{outline:2px solid #9ef8b7}
+.shell>.performance .local-mix-actions span{font:600 7px/10px system-ui,sans-serif;color:#839ab0}
+.shell>.performance:not(.expanded) .mini-mixer .pc-mixer-extra{display:none}
+.shell>.performance .performance-top{flex-wrap:wrap;row-gap:3px}
+.shell>.performance .performance-top .local-automix-toggle{min-height:22px;background:#173d2b;border:1px solid #3f9264;border-radius:3px;color:#b8ffd2;font:750 9px system-ui,sans-serif;cursor:pointer;padding:3px 7px;white-space:nowrap}
+.shell>.performance .performance-top .local-automix-toggle[aria-pressed="true"]{background:#37603f;color:#fff}
+.shell>.performance .performance-top .local-automix-toggle:focus-visible{outline:2px solid #9cf7b4;outline-offset:1px}
+.shell>.performance .performance-top .local-automix-status{font:650 8px/12px system-ui,sans-serif;color:#8fb5c8;flex:0 1 175px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;min-width:0}
+.shell>.performance .performance-top{position:relative}
+.shell>.performance .performance-top .desktop-remote-pair{background:#182b45;color:#bbdbfd;border:1px solid #395879;border-radius:3px;font:750 9px system-ui,sans-serif;padding:3px 7px;min-height:22px;cursor:pointer;white-space:nowrap}
+.shell>.performance .performance-top .desktop-remote-pair[aria-pressed="true"]{background:#1b4a42;color:#aaffdb;border-color:#348b6f}
+.shell>.performance .performance-top .desktop-remote-pair:focus-visible{outline:2px solid #7fbaf3}
+.shell>.performance .performance-top .desktop-remote-settings{position:absolute;z-index:15;right:4px;top:100%;width:min(330px,calc(100vw - 25px));padding:12px;border:1px solid #3b5673;border-radius:9px;background:#111e2f;box-shadow:0 12px 32px #000b;text-align:left;display:flex;flex-wrap:wrap;align-items:center;gap:7px;color:#bdd3ef}
+.shell>.performance .performance-top .desktop-remote-settings[hidden]{display:none}
+.shell>.performance .performance-top .desktop-remote-settings label{display:flex;flex-direction:column;gap:3px;flex:1 1 100%;font:700 10px system-ui,sans-serif}
+.shell>.performance .performance-top .desktop-remote-settings input{width:100%;box-sizing:border-box;border:1px solid #3a5572;border-radius:4px;padding:6px;color:#f2f7ff;background:#0c1524;font:12px system-ui,sans-serif}
+.shell>.performance .performance-top .desktop-remote-settings button{background:#214976;border:1px solid #4974a4;color:#ecf8ff;border-radius:4px;padding:5px 8px;cursor:pointer;font-size:11px;font-weight:700}
+.shell>.performance .performance-top #desktop-remote-status{display:block;font:600 10px/15px system-ui,sans-serif;flex:1 1 100%}
+.shell>.performance .performance-top .desktop-remote-settings small{color:#839bb8;font:9px/13px system-ui,sans-serif}
+/* Explicit, short-lived phone pairing request. Approval must happen on the Mac. */
+.music-phone-approval{position:fixed;top:18px;right:20px;z-index:10000;max-width:min(375px,calc(100vw - 35px));padding:20px;
+  display:flex;flex-direction:column;gap:10px;background:#15241a;border:1px solid #70b98c;border-radius:14px;
+  color:#f0fff3;box-shadow:0 18px 65px #000c;font:13px/1.45 system-ui,sans-serif}
+.music-phone-approval[hidden]{display:none!important}
+.music-phone-approval>strong{font-size:19px}
+.music-phone-approval>span{color:#bce6c9}
+.music-phone-approval>b{font-size:38px;letter-spacing:.18em;font-variant-numeric:tabular-nums}
+.music-phone-approval>div{display:flex;gap:10px}
+.music-phone-approval button{border:1px solid #7db895;border-radius:9px;padding:10px 14px;
+  font-weight:750;background:#baf2cb;color:#123122;cursor:pointer}
+.music-phone-approval button:last-child{color:#c5d9ca;background:#293d30}
+.music-phone-approval>small{font-size:10px;color:#9fbaaa}
+.shell>.performance .performance-top .physical-flx4-toggle{padding:4px 8px;min-height:22px;
+  background:#2c2720;border:1px solid #827046;border-radius:4px;color:#e8d3a3;
+  font:750 9px system-ui,sans-serif;cursor:pointer}
+.shell>.performance .performance-top .physical-flx4-toggle[aria-pressed=true]{
+  background:#204d36;border-color:#57a67a;color:#cbffde}
+.shell>.performance .performance-top .physical-flx4-status{
+  color:#a8b9aa;font:600 9px/13px system-ui,sans-serif;max-width:220px;
+  white-space:normal;min-width:90px}
+/* Always visible in Library Focus (which hides the performance-top). */
+.physical-flx4-panel{position:fixed;right:16px;bottom:88px;z-index:950;
+  width:min(325px,calc(100vw - 32px));padding:10px 12px;display:grid;
+  grid-template-columns:9px minmax(0,1fr);column-gap:9px;row-gap:5px;
+  align-items:center;background:#10201a;border:1px solid #548168;
+  border-radius:12px;box-shadow:0 12px 34px #000b;color:#e7fff0;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.physical-flx4-panel .physical-flx4-dot{grid-row:1/3;width:9px;height:9px;
+  border-radius:50%;background:#d7a55d}
+.physical-flx4-panel .physical-flx4-dot[data-state=connected]{background:#72f3ac;box-shadow:0 0 10px #72f3ac88}
+.physical-flx4-panel .physical-flx4-dot[data-state=off]{background:#969c97;box-shadow:none}
+.physical-flx4-panel .physical-flx4-toggle{justify-self:start;background:none;border:0;
+  padding:1px 0;color:#caffda;font:800 12px system-ui,sans-serif;cursor:pointer}
+.physical-flx4-panel .physical-flx4-toggle[aria-pressed=false]{color:#ddd3b8}
+.physical-flx4-panel .physical-flx4-toggle:focus-visible{outline:2px solid #b5ffcb;outline-offset:3px}
+.physical-flx4-panel .physical-flx4-status{grid-column:2;color:#b5d1bd;
+  font:600 10px/1.4 system-ui,sans-serif;overflow:hidden;max-height:28px}
+@media(max-width:640px){
+ .shell>.performance:not(.expanded) .deck{grid-template-rows:14px 46px 30px 22px 24px!important}
+ .shell>.performance .deck>.top-decks-scrub-row{gap:2px;padding:0 1px!important}
+ .shell>.performance .deck>.top-decks-scrub-row button{width:17px!important}
+ .shell>.performance .deck>.top-decks-scrub-row .top-decks-scrub-current,
+ .shell>.performance .deck>.top-decks-scrub-row .top-decks-scrub-duration{font-size:8px!important;min-width:25px!important}
+}

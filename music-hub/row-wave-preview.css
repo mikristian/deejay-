@@ -1,0 +1,5 @@
+.shell>.main .row-wave-button{position:relative;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.shell>.main .row-wave-button::after{content:"";position:absolute;pointer-events:none;z-index:2;left:var(--row-preview-x,0%);top:0;bottom:0;width:2px;background:#fff;box-shadow:0 0 5px #fff9;opacity:0;transform:translateX(-1px)}
+.shell>.main .row-wave-button.row-preview-hover::after,.shell>.main .row-wave-button:focus-visible::after,.shell>.main .row-wave-button.row-preview-playing::after{opacity:1}
+.shell>.main .row-wave-button.row-preview-playing{border-color:#fafafa;box-shadow:0 0 0 1px #fff5 inset}
+.row-wave-preview-status{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}

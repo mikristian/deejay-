@@ -1,0 +1,55 @@
+/* Connection preferences and the default compact preview player. */
+.mh-settings-page{width:min(100%,1100px);display:grid;gap:20px;min-width:0}
+.shell.settings-focus:not(.settings-show-performance)>.performance,
+.shell.settings-focus:not(.settings-show-performance)>.harmonic-rail{display:none!important}
+.browse-grid>.mh-settings-page{grid-column:1/-1;max-width:1100px;min-width:0}
+.mh-settings-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:14px}
+.mh-settings-heading h2{font-size:19px;letter-spacing:-.035em;margin:0 0 5px;color:var(--ink)}
+.mh-settings-heading p{font-size:12px;line-height:1.6;color:var(--muted);margin:0}
+.mh-connection-settings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.mh-connection-card{min-width:0;padding:19px;border:1px solid var(--border);border-radius:14px;background:var(--surface);color:var(--ink)}
+.mh-connection-top{display:flex;align-items:flex-start;gap:12px}
+.mh-connection-top>div{min-width:0;flex:1}
+.mh-connection-icon{width:33px;height:33px;flex:none;display:grid;place-items:center;border-radius:10px;background:var(--accent-soft);color:var(--accent);font-size:21px}
+.mh-connection-top h3{margin:0 0 5px!important;padding:0!important;border:0!important;font-size:15px!important;color:var(--ink)}
+.mh-connection-top p,.mh-connection-help{color:var(--muted);font-size:11px;line-height:1.6;margin:0}
+.mh-connection-pill{border:1px solid var(--border);border-radius:20px;color:var(--muted);font-size:10px;font-weight:750;white-space:nowrap;padding:6px 9px;line-height:1.3}
+.mh-connection-pill[data-state="ok"]{color:#1d9b78;border-color:color-mix(in srgb,#1d9b78 43%,var(--border));background:color-mix(in srgb,#1d9b78 8%,transparent)}
+.mh-connection-pill[data-state="warn"]{color:var(--muted)}
+.mh-connection-pill[data-state="error"]{color:#d98286;border-color:#d9828680}
+.mh-connection-stat{margin:19px 0 12px;padding:14px;background:var(--panel);border:1px solid var(--border);border-radius:11px;display:flex;align-items:baseline;gap:9px}
+.mh-connection-stat strong{font-size:25px;color:var(--ink);letter-spacing:-.04em}
+.mh-connection-stat span{font-size:11px;color:var(--muted)}
+.mh-connection-detail{font-size:11px;line-height:1.6;min-height:32px;margin:13px 0;color:var(--muted)}
+.mh-connection-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:14px 0}
+.mh-connection-actions button{min-height:37px;border:1px solid var(--border);border-radius:8px;background:var(--panel);color:var(--ink);font-size:11px;font-weight:700;padding:8px 11px}
+.mh-connection-actions button:hover{border-color:var(--accent)}
+.mh-connection-actions .mh-primary-connect{background:var(--accent);border-color:var(--accent);color:#0b1420}
+.mh-connection-fields{display:grid;gap:11px;margin-top:17px}
+.mh-connection-fields label{display:grid;gap:7px;font-size:11px;font-weight:700;color:var(--ink)}
+.mh-connection-fields input{min-width:0;width:100%;border:1px solid var(--border);border-radius:9px;color:var(--ink);background:var(--panel);padding:10px 12px;font-size:12px;font-weight:450}
+.mh-phone-howto{margin-top:18px;border-top:1px solid var(--border);padding-top:14px;color:var(--muted);font-size:11px;line-height:1.7}
+.mh-phone-howto strong{color:var(--ink)}
+.mh-phone-howto ol{margin:9px 0;padding-left:18px}
+.mh-phone-howto li{margin:7px 0}
+.mh-phone-howto code{overflow-wrap:anywhere;color:var(--ink);font-size:10px}
+.mh-phone-howto a{display:inline-flex;color:var(--accent);text-decoration:none;font-weight:750;margin-top:5px}
+.mh-phone-howto a:hover{text-decoration:underline}
+@media(max-width:960px){.mh-connection-settings{grid-template-columns:1fr}.mh-connection-card{padding:17px}}
+@media(max-width:540px){.mh-connection-top{flex-wrap:wrap}.mh-connection-pill{margin-left:45px}.mh-settings-page{gap:15px}}
+
+/* The local preview consumes zero song-list space until explicitly opened.
+ * Keep its toggle in the toolbar, outside the hidden footer, so browsing
+ * remains usable and native playback elements stay mounted. */
+.toolbar-actions #selected-player-toggle{flex:none;white-space:nowrap;border:1px solid var(--border);border-radius:6px;background:var(--panel);color:var(--ink);padding:7px 11px;font-size:11px;font-weight:750;line-height:1.35}
+.toolbar-actions #selected-player-toggle:hover,.toolbar-actions #selected-player-toggle[aria-expanded="true"]{border-color:var(--accent);color:var(--accent)}
+.toolbar-actions #selected-player-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.shell>.selected-player[hidden],.shell.player-collapsed>.selected-player{display:none!important}
+.shell.player-collapsed:has(>.harmonic-rail){grid-template-rows:auto auto minmax(0,1fr) 0px!important}
+.shell.player-collapsed.library-focus-mode:has(>.harmonic-rail){grid-template-rows:auto 0 minmax(0,1fr) 0px!important}
+@media(max-width:640px){
+  .shell.player-collapsed:has(>.harmonic-rail){grid-template-rows:auto auto minmax(0,1fr) 0px!important}
+  .shell.player-collapsed.library-focus-mode:has(>.harmonic-rail){grid-template-rows:auto 0 minmax(0,1fr) 0px!important}
+  .shell.player-collapsed>.sidebar{bottom:0!important}
+  .toolbar-actions #selected-player-toggle{padding:7px 9px;font-size:10px}
+}

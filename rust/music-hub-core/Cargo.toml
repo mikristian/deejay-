@@ -1,0 +1,11 @@
+[package]
+name = "music-hub-core"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Pure controller state and mixer math for a staged Music Hub native engine"
+
+[lib]
+name = "music_hub_core"
+path = "src/lib.rs"
+

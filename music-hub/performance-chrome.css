@@ -1,0 +1,430 @@
+/* Read-only Rekordbox-inspired chrome; expanded only to protect library row density. */
+.shell>.performance .pc-effects,.shell>.performance .pc-deck-extra,.shell>.performance .pc-mixer-extra{display:none}
+.shell>.performance.expanded .pc-effects{display:block}
+.shell>.performance.expanded .pc-deck-extra{display:block}
+.shell>.performance.expanded .pc-mixer-extra{display:block}
+.shell>.performance .pc-effects,.shell>.performance .pc-deck-extra,.shell>.performance .pc-mixer-extra{color:#b8c4d6;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',sans-serif;font-size:10px;letter-spacing:.02em}
+.shell>.performance .pc-effects{background:#0d0d14;border:1px solid #32323b;margin:5px -3px 8px;padding:7px 10px}
+.pc-effects-top,.pc-details-head,.pc-hotcue-head{display:flex;justify-content:space-between;align-items:center;font-size:9px;font-weight:700;letter-spacing:.08em}
+.pc-effects-top{color:#ccd7e8;margin-bottom:7px}
+.pc-readonly{font-weight:500;color:#8190a7}
+.pc-effects-main{display:grid;grid-template-columns:minmax(170px,1fr) minmax(215px,1.1fr) minmax(170px,1fr) minmax(155px,.7fr);align-items:stretch;gap:10px}
+.pc-fx-channel,.pc-cfx,.pc-stems{background:#17171d;border:1px solid #30303a;padding:7px;min-width:0}
+.pc-fx-channel-name{color:#f6f7fc;font-weight:800;font-size:11px}
+.pc-fx-grid{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin-top:6px}
+.pc-fx-label{font-size:8px;letter-spacing:.05em;color:#8894a6;min-width:39px}
+.pc-fx-name{color:#f1f1f4;min-width:48px}
+.shell>.performance .pc-effects button,.shell>.performance .pc-deck-extra button{font:700 9px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;opacity:1;border:1px solid #3c414d;border-radius:3px;background:#24252c;color:#9daec2;min-height:21px;padding:3px 6px;cursor:not-allowed;box-shadow:none}
+.shell>.performance .pc-effects button:disabled,.shell>.performance .pc-deck-extra button:disabled{opacity:1}
+.shell>.performance .pc-fx-square{min-width:21px;padding:3px;background:#182844;color:#93b8f7}
+.shell>.performance .pc-fx-on{color:#9fbef8;border-color:#35588b}
+.shell>.performance .pc-fx-value{color:#ffcf91}
+.pc-cfx-heading{display:flex;justify-content:space-between;margin-bottom:9px;color:#c8d3e4}
+.pc-cfx-controls,.pc-cfx-options,.pc-stems>div{display:flex;gap:5px;flex-wrap:wrap}
+.pc-cfx-options{align-items:center;margin-top:7px;font-size:9px;color:#8f9aaa}
+.shell>.performance .pc-vocal{color:#8be0a3;border-color:#28593b}
+.shell>.performance .pc-inst{color:#f49e98;border-color:#6f3633}
+.shell>.performance .pc-drums{color:#b8baff;border-color:#49487e}
+.pc-stems>span{display:block;margin-bottom:11px;font-weight:700}
+.shell>.performance .pc-deck-extra{border-top:1px solid #383744;margin-top:8px;padding-top:8px}
+.pc-details-head{color:#92a8c4}
+.pc-deck-stage{display:grid;grid-template-columns:minmax(110px,155px) minmax(130px,1fr);align-items:center;gap:14px;margin:9px 0}
+.pc-jog-unit{display:flex;flex-direction:column;align-items:center;gap:5px}
+.pc-jog-ring{position:relative;width:min(100%,145px);aspect-ratio:1;border-radius:50%;border:7px solid #313541;background:conic-gradient(from 12deg,#222838 0deg 10deg,#586b8c 12deg 19deg,#10131b 21deg 340deg,#718ab4 344deg 354deg,#222838 358deg);display:grid;place-items:center;box-shadow:0 0 0 1px #090b10,inset 0 0 0 5px #13151b}
+.pc-jog-inner{width:78%;height:78%;border-radius:50%;border:1px solid #596477;background:radial-gradient(circle,#2b3446,#0b1019 75%);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2px}
+.pc-jog-caption{font-size:8px;color:#8395ae}.pc-jog-bpm{font-size:21px;color:#edf4ff;font-variant-numeric:tabular-nums}.pc-jog-key{font-size:10px;color:#79aaf2}
+.pc-jog-dot{position:absolute;top:7%;left:50%;width:7px;height:7px;border-radius:50%;background:#e45457;box-shadow:0 0 6px #b72f47}
+.pc-jog-notice{font-size:8px;color:#8992a3}
+.pc-deck-operations{min-width:0}.pc-transport{display:flex;justify-content:center;gap:12px;margin-bottom:12px}
+.shell>.performance .pc-transport button{width:49px;height:49px;border-radius:50%;font-size:11px;border:2px solid #6a707b;background:#1a1b22;color:#f0b876}
+.shell>.performance .pc-transport .pc-transport-play{background:#153728;color:#84e9a5;border-color:#3b9d62;font-size:20px}
+.pc-hotcue-head{margin-bottom:7px;color:#8f9bad}
+.pc-cue-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}
+.shell>.performance .pc-cue-grid button{height:32px;background:#212531;border-color:#41516c;color:#a8b6cf;font-size:12px}
+.shell>.performance .pc-cue-grid button.pc-cue-present{border-color:#f0b76f;background:#493221;color:#ffdb9e}
+.pc-deck-caption{display:flex;justify-content:space-between;gap:9px;color:#8494aa;font-size:9px}.pc-track-title{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#cdd7e9;font-weight:700}
+.shell>.performance .mini-mixer:has(.pc-mixer-extra){justify-content:flex-start}
+.shell>.performance .pc-mixer-extra{width:100%;border-top:1px solid #343944;margin-top:7px;padding-top:9px;text-align:center}
+.pc-mixer-extra>strong{font-size:8px;color:#aebacb}
+.pc-mixer-columns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:9px 0}
+.pc-mixer-column{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:8px;color:#9facc0}
+.pc-mixer-control{display:flex;flex-direction:column;align-items:center;gap:3px}
+.pc-knob{height:17px;width:17px;border:3px solid #47505e;border-radius:50%;background:#131821;position:relative}
+.pc-knob i{position:absolute;height:6px;width:2px;background:#b1ccfb;top:0;left:5px;transform:rotate(18deg)}
+.pc-fader{height:40px;width:5px;border-radius:3px;background:#0d1017;border:1px solid #536070;position:relative}
+.pc-fader i{position:absolute;left:-5px;top:var(--pc-position);width:13px;height:6px;background:#a8b8cd;border:1px solid #313a4a;border-radius:2px}
+.pc-mixer-bottom{display:flex;align-items:center;flex-direction:column;gap:5px;color:#9faec3;font-size:8px}
+.pc-headphones{font-size:13px;color:#8ab5f1}.pc-crossfader{height:5px;width:76%;border-radius:4px;background:#151a21;position:relative;border:1px solid #454f5c}.pc-crossfader i{position:absolute;left:48%;top:-6px;width:8px;height:15px;background:#b3becd;border-radius:2px}
+.pc-mixer-bottom small{font-size:7px;color:#8896a6}
+@media(max-width:1100px){.pc-effects-main{grid-template-columns:1fr 1fr}.pc-deck-stage{grid-template-columns:1fr;gap:6px}.pc-jog-ring{width:104px}.shell>.performance .pc-mixer-extra{display:none}}
+@media(max-width:680px){.shell>.performance.expanded .pc-effects{display:none}.shell>.performance.expanded .pc-deck-extra{display:none}.shell>.performance.expanded .pc-mixer-extra{display:none}}
+/* FX1 and FX2 are equal-width top bands; CFX and stems have their own lower row. */
+.pc-effects-main{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.pc-fx-channel{padding:7px 9px;background:#15151d}
+.pc-fx-channel-heading{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #333744;padding-bottom:5px}
+.pc-fx-channel-heading small,.pc-cfx-heading small{color:#8594ab;font-size:8px;font-weight:500}
+.pc-fx-channel-content{display:grid;grid-template-columns:105px minmax(0,1fr);gap:10px;margin-top:7px}
+.pc-fx-assign .pc-fx-label{display:block;margin-bottom:6px}
+.pc-fx-assign-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,26px);gap:4px}
+.shell>.performance .pc-fx-assign-grid .pc-fx-square{min-width:0;height:26px;padding:2px;color:#a4b7cc;background:#202635;border-color:#394355}
+.shell>.performance .pc-fx-assign-grid .pc-fx-emphasis{color:#9cceff;background:#15396f;border-color:#3774c7;box-shadow:inset 0 0 0 1px #245998}
+.pc-fx-slots>.pc-fx-label{display:block;margin-bottom:4px}
+.pc-fx-slot-row{display:grid;grid-template-columns:minmax(65px,1fr) 32px 21px 21px;align-items:center;gap:4px;min-height:24px;border-top:1px solid #292f3a;color:#d7e0ec}
+.pc-fx-slot-row b{font-size:9px;color:#e6bd88;text-align:center;font-variant-numeric:tabular-nums}
+.shell>.performance .pc-fx-slot-row .pc-step{min-width:0;min-height:19px;padding:1px}
+.pc-fx-timing{display:flex;justify-content:flex-end;gap:5px;margin-top:5px}
+.shell>.performance .pc-fx-timing button{min-height:19px}
+.pc-cfx-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;margin-top:7px}
+.pc-cfx{padding:6px 9px}
+.pc-cfx-heading{justify-content:flex-start;gap:12px;margin-bottom:6px}
+.pc-cfx-controls{align-items:center;gap:12px;flex-wrap:nowrap}
+.pc-cfx-mode{display:flex;gap:4px}
+.shell>.performance .pc-cfx-filter{color:#a6caff;border-color:#345889}
+.pc-cfx-knobs{display:flex;align-items:center;justify-content:space-around;gap:11px;flex:1;min-width:0}
+.pc-cfx-knob{display:flex;flex-direction:column;align-items:center;gap:3px;color:#9aaabe;font-size:8px}
+.pc-cfx-knob-art{height:17px;width:17px;border:3px solid #47536b;border-radius:50%;background:radial-gradient(circle at 55% 45%,#333f53,#141720);position:relative}
+.pc-cfx-knob-art:before{content:'';position:absolute;left:5px;top:-2px;height:7px;width:2px;border-radius:2px;background:#94bafb}
+.pc-stems{padding:7px 10px;min-width:190px}
+.pc-stems>span{margin-bottom:7px}
+.shell>.performance .pc-inst{color:#fa969b;border-color:#814049;background:#342024}
+.shell>.performance .pc-vocal{color:#91e9b0;border-color:#37704e;background:#193426}
+.shell>.performance .pc-drums{color:#93b9ff;border-color:#3a5793;background:#1a2949}
+/* Deck A: pads left and jog right. Deck B: jog left and pads right. */
+.pc-deck-stage-1{grid-template-columns:minmax(135px,1fr) minmax(95px,145px)}
+.pc-deck-stage-1 .pc-deck-operations{grid-column:1;grid-row:1}
+.pc-deck-stage-1 .pc-jog-unit{grid-column:2;grid-row:1}
+.pc-deck-stage-2{grid-template-columns:minmax(95px,145px) minmax(135px,1fr)}
+.pc-deck-stage-2 .pc-jog-unit{grid-column:1;grid-row:1}
+.pc-deck-stage-2 .pc-deck-operations{grid-column:2;grid-row:1}
+.pc-cue-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(4,32px);grid-auto-flow:column;gap:5px}
+.pc-jog-ring{border-color:#294d8a;background:conic-gradient(from 8deg,#255bad 0deg 16deg,#131923 17deg 330deg,#275fb5 332deg 353deg,#090d15 354deg 360deg);box-shadow:0 0 0 1px #151c2b,inset 0 0 0 5px #111827}
+.pc-jog-inner{border-color:#397bd3}
+.pc-deck-sync{display:flex;align-items:center;justify-content:flex-end;gap:5px;flex-wrap:wrap;margin-top:7px;padding:5px 0;border-bottom:1px solid #2b3743;font-size:9px;letter-spacing:.3px;color:#94a4b9}
+.pc-deck-sync .pc-sync-time{margin-right:auto;font-variant-numeric:tabular-nums;color:#cdd8e9}
+.pc-deck-sync .pc-sync-position{color:#7e90a7}
+.shell>.performance .pc-deck-sync .pc-sync-button{font-size:8px;min-height:20px;background:#252e39;border-color:#455265;color:#afbecf}
+.shell>.performance .pc-transport .pc-transport-cue{color:#ffd39b;border-color:#e3a047;background:#4a2d19}
+.shell>.performance .pc-transport .pc-transport-play{color:#a5ffbf;border-color:#48b46c;background:#18482a}
+@media(max-width:1100px){.pc-effects-main{grid-template-columns:repeat(2,minmax(0,1fr))}.pc-fx-channel-content{grid-template-columns:76px minmax(0,1fr);gap:5px}.pc-fx-slot-row{grid-template-columns:minmax(60px,1fr) 25px 19px 19px}.pc-cfx-row{grid-template-columns:1fr}.pc-cfx-controls{flex-wrap:wrap}.pc-deck-stage-1{grid-template-columns:minmax(0,1fr) 100px}.pc-deck-stage-2{grid-template-columns:100px minmax(0,1fr)}}
+@media(max-width:780px){.pc-effects-main{grid-template-columns:1fr}.pc-fx-channel-content{grid-template-columns:105px minmax(0,1fr)}}
+
+/* The reference's cue-pad/transport/jog layout mirrors across the mixer:
+   Deck A has cue pads -> transport -> jog; Deck B reverses the arrangement. */
+.pc-deck-operations{display:flex;align-items:center;gap:8px;min-width:0}
+.pc-deck-operations .pc-pad-panel{flex:1;min-width:0}
+.pc-deck-operations .pc-transport{display:flex;flex-direction:column;justify-content:center;align-items:center;flex:0 0 43px;gap:7px;margin:0}
+.pc-deck-stage-1 .pc-pad-panel{order:1}
+.pc-deck-stage-1 .pc-transport{order:2}
+.pc-deck-stage-2 .pc-transport{order:1}
+.pc-deck-stage-2 .pc-pad-panel{order:2}
+.shell>.performance .pc-deck-operations .pc-transport button{width:41px;height:41px;flex:none}
+.shell>.performance .pc-deck-operations .pc-transport .pc-transport-play{font-size:19px}
+.pc-deck-extra .pc-cue-grid button{border-radius:2px}
+.pc-jog-dot{left:77%;top:13%;background:#e34444;box-shadow:0 0 6px #b71b1b}
+
+/* Blue active styling here is explicitly illustrative: every FX button is
+   disabled because no effect channel/transport hardware state is connected. */
+.shell>.performance .pc-fx-timing .pc-auto,.shell>.performance .pc-cfx-mode button:first-child,.shell>.performance .pc-cfx-filter{color:#f5f9ff;background:#1d58aa;border-color:#438fff}
+.shell>.performance .pc-fx-timing .pc-tap{background:#27272f;border-color:#626878}
+.pc-cfx-knob-art{border-color:#3765a2}
+@media(max-width:1100px){.pc-deck-operations{gap:4px}.pc-deck-operations .pc-transport{flex-basis:35px}.shell>.performance .pc-deck-operations .pc-transport button{width:33px;height:33px;font-size:9px}.pc-cue-grid{grid-template-rows:repeat(4,27px);gap:3px}.shell>.performance .pc-cue-grid button{height:27px;font-size:10px}}
+
+/* Mini FX menu toggles and colored stem pads are read-only facsimiles. */
+.pc-fx-menu{display:flex;align-items:center;gap:5px;margin-top:7px}
+.shell>.performance .pc-effects button.pc-fx-menu-button{font-size:13px;line-height:12px;min-width:31px;min-height:19px;padding:1px 3px;color:#fff;background:#1c6ef2;border-color:#4f93ff}
+.shell>.performance .pc-effects button.pc-fx-dot{font-size:13px;line-height:12px;min-width:20px;min-height:19px;padding:1px 3px;color:#cedcf3;background:#202633;border-color:#465367}
+.shell>.performance .pc-effects button.pc-cfx-filter{color:#f1f7ff;background:#1956a8;border-color:#4a97ff}
+.shell>.performance .pc-effects button.pc-inst{color:#ff9e9e;border-color:#a34c4a;background:#391e25}
+.shell>.performance .pc-effects button.pc-vocal{color:#8cf4b1;border-color:#418958;background:#173c29}
+.shell>.performance .pc-effects button.pc-drums{color:#9fbaff;border-color:#4a70c3;background:#1e2c5a}
+
+/* Non-interactive beat jump / slip / quantize / master-tempo reference. */
+.pc-deck-utilities{display:flex;gap:5px;align-items:center;flex-wrap:nowrap;margin:5px 0;padding:5px 0;border-top:1px solid #2e3845;border-bottom:1px solid #2e3845;min-width:0;font-size:8px;font-weight:740;letter-spacing:.45px;color:#8194aa}
+.pc-deck-utilities>span:first-child{white-space:nowrap;margin-right:3px}
+.pc-deck-utilities .pc-utilities-spacer{flex:1;min-width:2px}
+.shell>.performance .pc-deck-utilities button{min-height:21px;min-width:23px;padding:1px 4px;font-size:8px;line-height:1;border-radius:3px;background:#1e2631;border-color:#394559;color:#acb8c9}
+.shell>.performance .pc-deck-utilities .pc-jump-size{min-width:31px;color:#f5f6fa;font-size:11px}
+.shell>.performance .pc-deck-utilities .pc-beat-au,.shell>.performance .pc-deck-utilities .pc-q{color:#f0f8ff;background:#1d5db9;border-color:#377dce}
+@media(max-width:1100px){.pc-deck-utilities{gap:3px}.shell>.performance .pc-deck-utilities button{min-width:19px;padding:1px 3px;font-size:7px}.pc-deck-utilities>span:first-child{font-size:7px}}
+@media(max-width:780px){.pc-deck-utilities{flex-wrap:wrap}}
+
+/* Slim horizontal FX lanes: four effect slots across EACH half, not a tall
+   vertical list. Names, chevrons, beat value, and blue parameter knob marks
+   intentionally match the reference without activating real effects. */
+.pc-fx-channel{padding:5px 7px}
+.pc-fx-channel-heading{padding-bottom:3px}
+.pc-fx-channel-content{grid-template-columns:94px minmax(0,1fr);gap:8px;margin-top:5px}
+.pc-fx-assign-grid{grid-template-rows:repeat(2,21px);gap:3px}
+.shell>.performance .pc-fx-assign-grid .pc-fx-square{height:21px;min-height:21px;font-size:9px}
+.pc-fx-menu{margin-top:5px}
+.pc-fx-slots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) 54px;grid-template-rows:13px auto;gap:3px;align-items:stretch;min-width:0}
+.pc-fx-slots>.pc-fx-label{grid-column:1/-1;grid-row:1;font-size:8px;margin:0}
+.pc-fx-slot-row{display:grid;grid-template-columns:18px minmax(0,1fr) 18px;grid-template-rows:22px 24px;gap:2px;min-width:0;min-height:0;padding:1px;border:0;background:#15151d}
+.pc-fx-slot-row>span{grid-column:1/-1;grid-row:1;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:9px;padding:1px 11px 1px 3px;color:#f3f3f6;border:1px solid #3b3d47;border-radius:2px;background:#25262e}
+.pc-fx-slot-row>span:after{content:'⌄';position:absolute;right:2px;top:1px;font-size:10px;color:#aeb3c3}
+.pc-fx-slot-row b{grid-column:2;grid-row:2;min-width:0;display:flex;align-items:center;justify-content:center;gap:3px;color:#f1e9db;font-size:10px}
+.pc-fx-slot-row b:before{content:'';display:inline-block;height:9px;width:9px;min-width:9px;border:2px solid #3d9af2;border-right-color:#1a2638;border-radius:50%;box-sizing:border-box;transform:rotate(-35deg)}
+.pc-fx-slot-row.pc-fx-vinyl b:before{display:none}
+.shell>.performance .pc-fx-slot-row .pc-step{grid-row:2;min-width:0;min-height:21px;padding:0;line-height:19px;border:0;background:transparent;color:#8796ac;font-size:15px}
+.pc-fx-slot-row .pc-step:first-of-type{grid-column:1}
+.pc-fx-slot-row .pc-step:last-of-type{grid-column:3}
+.pc-fx-timing{grid-column:5;grid-row:2;display:flex;flex-direction:column;justify-content:space-between;gap:3px;margin:0}
+.shell>.performance .pc-fx-timing button{min-height:21px;padding:1px 3px;font-size:9px}
+@media(max-width:1150px){.pc-fx-channel-content{grid-template-columns:74px minmax(0,1fr);gap:4px}.pc-fx-slots{grid-template-columns:repeat(4,minmax(0,1fr)) 48px;gap:2px}.pc-fx-slot-row{grid-template-columns:15px minmax(0,1fr) 15px}.pc-fx-slot-row>span{font-size:8px}.pc-fx-slot-row b{font-size:9px}}
+@media(max-width:900px){.pc-effects-main{grid-template-columns:1fr}.pc-fx-channel-content{grid-template-columns:94px minmax(0,1fr)}.pc-fx-slots{grid-template-columns:repeat(4,minmax(0,1fr)) 54px}}
+/* Compact miniature performance overlay. Scope to the performance panel. */
+.shell>.performance .pc-effects,
+.shell>.performance .pc-deck-extra,
+.shell>.performance .pc-mixer-extra{display:block;min-width:0}
+.shell>.performance .pc-effects{padding:3px 5px;margin:2px 0 4px;background:#10131b;border:1px solid #303747;border-radius:4px}
+.shell>.performance .pc-effects-top{margin:0 0 3px;font-size:8px;line-height:11px}
+.shell>.performance .pc-effects-top .pc-readonly{font-size:8px}
+.shell>.performance .pc-effects-main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
+.shell>.performance .pc-fx-channel{padding:3px 5px}
+.shell>.performance .pc-fx-channel-heading{padding-bottom:2px;font-size:9px}
+.shell>.performance .pc-fx-channel-heading small{font-size:7px}
+.shell>.performance .pc-fx-channel-content{grid-template-columns:64px minmax(0,1fr);gap:5px;margin-top:3px}
+.shell>.performance .pc-fx-assign .pc-fx-label{font-size:7px;margin-bottom:2px}
+.shell>.performance .pc-fx-assign-grid{grid-template-rows:repeat(2,15px);gap:2px}
+.shell>.performance .pc-fx-assign-grid .pc-fx-square{height:15px;min-height:15px;padding:0;font-size:8px}
+.shell>.performance .pc-fx-menu{margin-top:3px;gap:2px}
+.shell>.performance .pc-effects button.pc-fx-menu-button,
+.shell>.performance .pc-effects button.pc-fx-dot{min-height:13px;height:13px;font-size:10px;line-height:9px;padding:0 2px}
+.shell>.performance .pc-fx-slots{grid-template-columns:repeat(4,minmax(0,1fr)) 38px;grid-template-rows:10px 30px;gap:2px}
+.shell>.performance .pc-fx-slots>.pc-fx-label{font-size:7px;line-height:10px}
+.shell>.performance .pc-fx-slot-row{grid-template-columns:12px minmax(0,1fr) 12px;grid-template-rows:16px 13px;gap:0;padding:0}
+.shell>.performance .pc-fx-slot-row>span{font-size:8px;padding:0 7px 0 1px}
+.shell>.performance .pc-fx-slot-row>span:after{font-size:8px;top:1px}
+.shell>.performance .pc-fx-slot-row b{font-size:8px}
+.shell>.performance .pc-fx-slot-row b:before{height:7px;width:7px;min-width:7px;border-width:1px}
+.shell>.performance .pc-fx-slot-row .pc-step{min-height:13px;height:13px;font-size:12px;line-height:11px}
+.shell>.performance .pc-fx-timing{gap:2px}
+.shell>.performance .pc-fx-timing button{min-height:14px;height:14px;font-size:7px;padding:0 2px}
+.shell>.performance .pc-cfx-row{grid-template-columns:minmax(0,1fr) auto;gap:4px;margin-top:3px}
+.shell>.performance .pc-cfx,.shell>.performance .pc-stems{padding:2px 5px}
+.shell>.performance .pc-cfx{display:flex;align-items:center;gap:8px}
+.shell>.performance .pc-cfx-heading{margin:0;gap:4px;flex:0 0 auto}
+.shell>.performance .pc-cfx-heading strong{font-size:9px}
+.shell>.performance .pc-cfx-heading small{font-size:7px}
+.shell>.performance .pc-cfx-controls{flex:1;gap:5px}
+.shell>.performance .pc-cfx-mode{gap:2px}
+.shell>.performance .pc-effects .pc-cfx-controls button{min-height:17px;font-size:8px;padding:1px 4px}
+.shell>.performance .pc-cfx-knobs{gap:5px;justify-content:space-evenly}
+.shell>.performance .pc-cfx-knob{gap:0;font-size:7px}
+.shell>.performance .pc-cfx-knob-art{width:11px;height:11px;border-width:2px}
+.shell>.performance .pc-cfx-knob-art:before{height:5px;width:1px;left:3px;top:-2px}
+.shell>.performance .pc-stems{display:flex;align-items:center;gap:5px;min-width:0}
+.shell>.performance .pc-stems>span{font-size:8px;white-space:nowrap;margin:0}
+.shell>.performance .pc-stems>div{gap:3px;flex-wrap:nowrap}
+.shell>.performance .pc-stems button{min-height:17px;font-size:8px;padding:1px 4px}
+.shell>.performance .pc-deck-extra{border-top:1px solid #2d3a4a;margin-top:3px;padding-top:2px;font-size:8px;min-height:0}
+.shell>.performance .pc-deck-sync{margin:0 0 2px;padding:1px 0 2px;gap:3px;justify-content:flex-end;flex-wrap:nowrap;white-space:nowrap;font-size:8px}
+.shell>.performance .pc-deck-sync .pc-sync-time{margin-right:auto;font-size:8px}
+.shell>.performance .pc-deck-sync .pc-sync-position{font-size:7px}
+.shell>.performance .pc-deck-sync .pc-sync-button{font-size:7px;min-height:15px;height:15px;padding:0 3px}
+.shell>.performance .pc-deck-stage{display:grid;align-items:center;gap:4px;margin:0}
+.shell>.performance .pc-deck-stage-1{grid-template-columns:minmax(0,1fr) 64px}
+.shell>.performance .pc-deck-stage-2{grid-template-columns:64px minmax(0,1fr)}
+.shell>.performance .pc-deck-stage-1 .pc-deck-operations{grid-column:1;grid-row:1}
+.shell>.performance .pc-deck-stage-1 .pc-jog-unit{grid-column:2;grid-row:1}
+.shell>.performance .pc-deck-stage-2 .pc-jog-unit{grid-column:1;grid-row:1}
+.shell>.performance .pc-deck-stage-2 .pc-deck-operations{grid-column:2;grid-row:1}
+.shell>.performance .pc-jog-unit{gap:0}
+.shell>.performance .pc-jog-ring{width:62px;height:62px;aspect-ratio:1;border:3px solid #254e98;box-shadow:0 0 0 1px #111b28,inset 0 0 0 2px #0b1018;background:conic-gradient(from 12deg,#2876dc 0deg 245deg,#0d1525 246deg 273deg,#2876dc 274deg 347deg,#0c1320 348deg)}
+.shell>.performance .pc-jog-inner{width:79%;height:79%;border:1px solid #3771b4;gap:0}
+.shell>.performance .pc-jog-bpm{font-size:13px;line-height:16px}
+.shell>.performance .pc-jog-key{font-size:8px}
+.shell>.performance .pc-jog-dot{width:5px;height:5px;top:9%;left:76%}
+.shell>.performance .pc-deck-operations{display:flex;align-items:center;gap:4px;min-width:0}
+.shell>.performance .pc-deck-operations .pc-pad-panel{min-width:0;flex:1}
+.shell>.performance .pc-hotcue-head{font-size:7px;line-height:9px;margin-bottom:2px}
+.shell>.performance .pc-hotcue-head span{font-size:7px}
+.shell>.performance .pc-cue-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(4,12px);grid-auto-flow:column;gap:2px}
+.shell>.performance .pc-cue-grid button{min-height:12px;height:12px;font-size:8px;line-height:10px;padding:0}
+.shell>.performance .pc-deck-operations .pc-transport{flex:0 0 25px;gap:5px}
+.shell>.performance .pc-deck-operations .pc-transport button{width:24px;height:24px;min-height:24px;font-size:7px;border-width:2px;padding:0}
+.shell>.performance .pc-deck-operations .pc-transport .pc-transport-play{font-size:12px}
+.shell>.performance .pc-stem-mutes{display:flex;align-items:center;gap:3px;margin:2px 0 1px;font-size:7px;font-weight:750}
+.shell>.performance .pc-stem-mutes button{min-height:14px;height:14px;padding:0 5px;font-size:7px}
+.shell>.performance .pc-stem-mutes .pc-inst{color:#ff9898;border-color:#a34c4a;background:#391e25}
+.shell>.performance .pc-stem-mutes .pc-vocal{color:#8cf4b1;border-color:#418958;background:#173c29}
+.shell>.performance .pc-stem-mutes .pc-drums{color:#c4aeff;border-color:#7051bd;background:#2a1c47}
+.shell>.performance .pc-deck-utilities{margin:1px 0;padding:2px 0;gap:2px;font-size:7px;letter-spacing:0}
+.shell>.performance .pc-deck-utilities>span:first-child{font-size:7px;margin:0}
+.shell>.performance .pc-deck-utilities button{height:14px;min-height:14px;min-width:15px;font-size:7px;padding:0 2px}
+.shell>.performance .pc-deck-utilities .pc-jump-size{min-width:22px;font-size:8px}
+.shell>.performance .pc-deck-caption{gap:3px;font-size:7px;line-height:9px}
+.shell>.performance .pc-deck-caption .pc-verified{white-space:nowrap}
+.shell>.performance .mini-mixer:has(.pc-mixer-extra){justify-content:flex-start;gap:2px}
+.shell>.performance .pc-mixer-extra{display:block;width:100%;min-width:0;margin-top:2px;padding-top:3px}
+.shell>.performance .pc-mixer-extra>strong{font-size:8px;white-space:nowrap}
+.shell>.performance .pc-mixer-columns{gap:2px;margin:3px 0}
+.shell>.performance .pc-mixer-column{gap:3px;font-size:7px}
+.shell>.performance .pc-mixer-control{gap:1px;font-size:7px}
+.shell>.performance .pc-knob{width:12px;height:12px;border-width:2px}
+.shell>.performance .pc-knob i{left:3px;height:4px;width:1px}
+.shell>.performance .pc-fader{height:25px;width:4px}
+.shell>.performance .pc-fader i{width:10px;height:5px;left:-4px}
+.shell>.performance .pc-mixer-switches{display:flex;flex-direction:column;gap:2px}
+.shell>.performance .pc-mixer-switches button,
+.shell>.performance .pc-head-assign button{background:#19304e;color:#aec9f0;border:1px solid #3b587e;border-radius:2px;font-size:6px;min-height:13px;padding:0 2px;opacity:1;cursor:not-allowed}
+.shell>.performance .pc-mixer-bottom{gap:2px;align-items:center;font-size:7px}
+.shell>.performance .pc-headphones{line-height:10px;font-size:10px}
+.shell>.performance .pc-head-assign{display:flex;gap:2px}
+.shell>.performance .pc-crossfader{width:90%;height:4px}
+.shell>.performance .pc-crossfader i{top:-4px;height:11px;width:6px}
+.shell>.performance.expanded .pc-jog-ring{width:74px;height:74px}
+.shell>.performance.expanded .pc-deck-stage-1{grid-template-columns:minmax(0,1fr) 76px}
+.shell>.performance.expanded .pc-deck-stage-2{grid-template-columns:76px minmax(0,1fr)}
+.shell>.performance.expanded .pc-cue-grid{grid-template-rows:repeat(4,18px)}
+.shell>.performance.expanded .pc-cue-grid button{height:18px}
+.shell>.performance.expanded .pc-deck-operations .pc-transport button{height:31px;width:31px;min-height:31px}
+@media(max-width:1100px){
+ .shell>.performance .pc-deck-sync .pc-sync-position{display:none}
+ .shell>.performance .pc-deck-sync .pc-sync-button{font-size:6px;padding:0 2px}
+ .shell>.performance .pc-stems>span{display:none}
+ .shell>.performance .pc-cfx-knobs{gap:2px}
+ .shell>.performance .pc-fx-channel-content{grid-template-columns:57px minmax(0,1fr);gap:3px}
+ .shell>.performance .pc-fx-slot-row>span{font-size:7px}
+ .shell>.performance .pc-mixer-bottom{font-size:6px}
+}
+@media(max-width:900px){
+ .shell>.performance .pc-effects-main{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .shell>.performance .pc-fx-slots{grid-template-columns:repeat(4,minmax(0,1fr)) 30px}
+ .shell>.performance .pc-fx-slot-row>span{font-size:6px}
+ .shell>.performance .pc-cfx-row{grid-template-columns:minmax(0,1fr)}
+ .shell>.performance .pc-cfx{gap:4px}
+ .shell>.performance .pc-cfx-controls{gap:3px}
+ .shell>.performance .pc-stems{justify-content:center}
+ .shell>.performance .pc-deck-stage-1{grid-template-columns:minmax(0,1fr) 52px}
+ .shell>.performance .pc-deck-stage-2{grid-template-columns:52px minmax(0,1fr)}
+ .shell>.performance .pc-jog-ring{width:50px;height:50px}
+ .shell>.performance .pc-jog-bpm{font-size:10px}
+ .shell>.performance .pc-cue-grid{grid-template-rows:repeat(4,11px)}
+ .shell>.performance .pc-cue-grid button{height:11px}
+ .shell>.performance .pc-deck-operations .pc-transport{flex-basis:20px}
+ .shell>.performance .pc-deck-operations .pc-transport button{width:20px;height:20px;min-height:20px}
+ .shell>.performance .pc-stem-mutes button{font-size:6px;padding:0 2px}
+ .shell>.performance .pc-deck-utilities{flex-wrap:wrap}
+}
+@media(max-width:640px){
+ .shell>.performance .pc-effects{display:none}
+ .shell>.performance .pc-deck-extra{display:none}
+ .shell>.performance .pc-mixer-extra{display:none}
+ .shell>.performance.expanded .pc-effects{display:block}
+ .shell>.performance.expanded .pc-deck-extra{display:block}
+ .shell>.performance.expanded .pc-mixer-extra{display:none}
+ .shell>.performance.expanded .pc-effects-main{grid-template-columns:1fr}
+ .shell>.performance.expanded .pc-cfx-row{grid-template-columns:1fr}
+ .shell>.performance.expanded .pc-deck-stage-1{grid-template-columns:minmax(0,1fr) 52px}
+ .shell>.performance.expanded .pc-deck-stage-2{grid-template-columns:52px minmax(0,1fr)}
+ .shell>.performance.expanded .pc-jog-ring{width:50px;height:50px}
+ .shell>.performance.expanded .pc-deck-sync{flex-wrap:wrap}
+ .shell>.performance.expanded .pc-cue-grid{grid-template-rows:repeat(4,12px)}
+}
+
+/* Density correction: the mixer must never dictate the height of both decks. */
+@media(min-width:641px){
+ .shell>.performance .deck-pair{align-items:start;grid-template-columns:minmax(0,1fr) 78px minmax(0,1fr)}
+ .shell>.performance .deck-pair>.deck{align-self:start;min-height:0;padding-top:3px;padding-bottom:3px}
+ .shell>.performance .mini-mixer{align-self:start;justify-content:flex-start;min-height:0;height:157px;max-height:157px;overflow:hidden;gap:0;padding:2px 2px}
+ .shell>.performance .mini-mixer>.mixer-title,
+ .shell>.performance .mini-mixer>.mixer-bridge,
+ .shell>.performance .mini-mixer>#deck-relationship,
+ .shell>.performance .mini-mixer>.mixer-bars,
+ .shell>.performance .mini-mixer>.mixer-caption{display:none}
+ .shell>.performance .pc-mixer-extra{border:0;margin:0;padding:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;gap:1px}
+ .shell>.performance .pc-mixer-extra>strong{font-size:7px;line-height:9px}
+ .shell>.performance .pc-mixer-columns{flex:1;min-height:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;width:100%;margin:0}
+ .shell>.performance .pc-mixer-column{display:grid;grid-template-rows:10px repeat(4,17px) 26px 15px;align-content:start;justify-items:center;gap:0;min-width:0}
+ .shell>.performance .pc-mixer-column>span{font-size:7px;line-height:10px}
+ .shell>.performance .pc-mixer-control{display:flex;flex-direction:row;align-items:center;justify-content:space-between;width:100%;min-width:0;gap:1px;font-size:6px;line-height:8px}
+ .shell>.performance .pc-mixer-control>span{width:15px;flex:0 0 15px;text-align:left;overflow:hidden}
+ .shell>.performance .pc-knob{flex:none;width:10px;height:10px;border-width:2px;margin-right:1px}
+ .shell>.performance .pc-knob i{left:2px;height:3px;width:1px}
+ .shell>.performance .pc-mixer-control:has(.pc-fader){justify-content:center;gap:2px}
+ .shell>.performance .pc-mixer-control:has(.pc-fader)>span{display:none}
+ .shell>.performance .pc-fader{height:23px;width:4px}
+ .shell>.performance .pc-mixer-switches{display:flex;flex-direction:row;justify-content:center;gap:1px;width:100%}
+ .shell>.performance .pc-mixer-switches button{font-size:6px;min-height:13px;padding:0 1px}
+ .shell>.performance .pc-mixer-bottom{flex:0 0 15px;display:flex;flex-direction:row;justify-content:center;flex-wrap:wrap;gap:2px;line-height:8px;width:100%;font-size:6px}
+ .shell>.performance .pc-mixer-bottom>.pc-headphones{font-size:8px}
+ .shell>.performance .pc-mixer-bottom>.pc-crossfader{width:26px;flex:0 0 26px}
+ .shell>.performance .pc-head-assign button{min-height:10px;line-height:8px}
+ .shell>.performance .pc-effects{margin:1px 0 3px;padding:2px 4px}
+ .shell>.performance .pc-effects-top{display:none}
+ .shell>.performance .pc-fx-channel{padding:2px 4px}
+ .shell>.performance .pc-fx-channel-heading{height:12px;padding:0;border:0}
+ .shell>.performance .pc-fx-channel-heading .pc-fx-channel-name{font-size:9px}
+ .shell>.performance .pc-fx-channel-heading small{font-size:7px}
+ .shell>.performance .pc-fx-channel-content{margin-top:1px;grid-template-columns:53px minmax(0,1fr);gap:3px}
+ .shell>.performance .pc-fx-assign .pc-fx-label{display:none}
+ .shell>.performance .pc-fx-assign-grid{grid-template-rows:repeat(2,13px);gap:1px}
+ .shell>.performance .pc-fx-assign-grid .pc-fx-square{height:13px;min-height:13px;font-size:7px}
+ .shell>.performance .pc-fx-menu{margin-top:1px}
+ .shell>.performance .pc-effects button.pc-fx-menu-button,
+ .shell>.performance .pc-effects button.pc-fx-dot{height:11px;min-height:11px;line-height:9px}
+ .shell>.performance .pc-fx-slots{grid-template-columns:repeat(4,minmax(0,1fr)) 34px;grid-template-rows:9px 29px;gap:1px}
+ .shell>.performance .pc-fx-slot-row{grid-template-rows:16px 12px}
+ .shell>.performance .pc-fx-slot-row>span{font-size:8px}
+ .shell>.performance .pc-fx-slot-row .pc-step{min-height:12px;height:12px}
+ .shell>.performance .pc-fx-timing button{min-height:13px;height:13px;font-size:7px}
+ .shell>.performance .pc-cfx-row{margin-top:2px;gap:3px}
+ .shell>.performance .pc-cfx,.shell>.performance .pc-stems{padding:1px 4px;min-height:19px}
+ .shell>.performance .pc-cfx-controls{gap:4px}
+ .shell>.performance .pc-cfx-knob-art{height:10px;width:10px}
+ .shell>.performance .pc-effects .pc-cfx-controls button,
+ .shell>.performance .pc-stems button{height:15px;min-height:15px;padding:0 3px}
+ .shell>.performance .pc-stems>span{font-size:7px}
+ .shell>.performance .pc-deck-extra{margin-top:2px;padding-top:2px}
+ .shell>.performance .pc-deck-sync{margin:0 0 1px;padding:0 0 1px}
+ .shell>.performance .pc-deck-stage{margin:0;gap:3px}
+ .shell>.performance .pc-deck-stage-1{grid-template-columns:minmax(0,1fr) 61px}
+ .shell>.performance .pc-deck-stage-2{grid-template-columns:61px minmax(0,1fr)}
+ .shell>.performance .pc-jog-ring{width:60px;height:60px}
+ .shell>.performance .pc-stem-mutes{margin:1px 0 0}
+ .shell>.performance .pc-deck-utilities{margin:0;padding:1px 0}
+ .shell>.performance .pc-deck-caption{line-height:8px}
+}
+@media(min-width:641px) and (max-width:1500px){
+ .shell>.performance .pc-fx-channel-heading small{font-size:0}
+ .shell>.performance .pc-fx-channel-heading small:after{content:'PREVIEW';font-size:7px}
+ .shell>.performance .pc-stems>span{display:none}
+ .shell>.performance .pc-cfx-heading small{display:none}
+ .shell>.performance .pc-sync-position{display:none}
+ .shell>.performance .pc-deck-caption .pc-verified{font-size:0}
+ .shell>.performance .pc-deck-caption .pc-verified:after{content:'PREVIEW';font-size:7px}
+}
+
+/* Headphone routing/crossfader now occupies its own 14px strip below the decks. */
+.shell>.performance .pc-headphone-bar{display:flex;align-items:center;justify-content:center;gap:6px;height:16px;min-height:16px;margin-top:2px;padding:1px 5px;border:1px solid #303d50;background:#141b26;border-radius:3px;color:#90a9c6;font-size:7px;font-weight:750;line-height:12px}
+.shell>.performance .pc-headphone-bar .pc-headphones{font-size:10px;line-height:10px;color:#92bdf9}
+.shell>.performance .pc-headphone-bar .pc-head-assign{display:flex;gap:3px}
+.shell>.performance .pc-headphone-bar .pc-head-assign button{background:#1b3656;color:#b0ceef;border:1px solid #416188;border-radius:2px;min-height:12px;height:12px;font-size:7px;padding:0 4px;cursor:not-allowed;opacity:1}
+.shell>.performance .pc-headphone-bar .pc-crossfader{width:72px;height:4px;flex:0 0 72px;border-radius:2px;border:1px solid #53617a;background:#111a28;position:relative}
+.shell>.performance .pc-headphone-bar .pc-crossfader i{position:absolute;left:47%;top:-5px;height:12px;width:7px;background:#bbcadf;border-radius:2px}
+@media(min-width:641px){
+ .shell>.performance .mini-mixer{height:136px;max-height:136px}
+ .shell>.performance .pc-mixer-column{grid-template-rows:10px repeat(4,17px) 26px 15px}
+ .shell>.performance .pc-mixer-extra{height:auto}
+}
+@media(max-width:640px){
+ .shell>.performance .pc-headphone-bar{display:none}
+ .shell>.performance.expanded .pc-headphone-bar{display:flex;flex-wrap:wrap;height:auto;min-height:16px}
+}
+
+/* Mirrored 2×2 HP assign grids and ultra-mini, non-operational sampler. */
+.shell>.performance .pc-headphone-bar{gap:5px;height:18px;min-height:18px;margin-top:1px;padding:1px 5px}
+.shell>.performance .pc-headphone-bar .pc-head-assign{display:grid;grid-template-columns:repeat(2,13px);grid-template-rows:repeat(2,7px);gap:1px;flex:0 0 auto}
+.shell>.performance .pc-headphone-bar .pc-head-assign button{width:13px;height:7px;min-height:7px;line-height:6px;font-size:6px;padding:0;color:#8e9cab;background:#202631;border-color:#374051}
+.shell>.performance .pc-headphone-bar .pc-head-assign button.pc-assign-blue{color:#e0efff;background:#1955a8;border-color:#387fe2}
+.shell>.performance .pc-headphone-bar .pc-crossfader{width:76px;flex-basis:76px}
+.shell>.performance .pc-headphone-bar .pc-headphone-preview{font-size:7px;color:#728aa5;white-space:nowrap}
+@media(min-width:641px) and (max-width:1050px){
+ .shell>.performance .pc-headphone-bar{gap:3px}
+ .shell>.performance .pc-headphone-bar .pc-crossfader{width:48px;flex-basis:48px}
+}
+@media(max-width:640px){
+ .shell>.performance.expanded .pc-headphone-bar{height:auto;min-height:18px}
+ .shell>.performance.expanded .pc-headphone-bar .pc-head-assign{display:grid}
+}

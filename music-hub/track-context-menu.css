@@ -1,0 +1,15 @@
+/* Compact rekordbox-inspired track context panel. Native changes are never implied. */
+.music-hub-track-menu{position:fixed;z-index:4000;box-sizing:border-box;width:305px;max-width:calc(100vw - 20px);max-height:calc(100dvh - 18px);padding:8px;display:flex;flex-direction:column;gap:4px;overflow:hidden;color:#e9f0fa;background:#131b27;border:1px solid #405a73;border-radius:6px;box-shadow:0 18px 45px #000c;font:12px/1.3 -apple-system,BlinkMacSystemFont,system-ui,sans-serif}
+.music-hub-track-menu[hidden]{display:none!important}
+.music-hub-track-menu-head{font-weight:750;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:5px 6px 0}
+.music-hub-track-menu-caption{color:#90a6ba;letter-spacing:.08em;padding:0 6px 6px;font-size:8px}
+.music-hub-track-menu-list{min-height:0;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#4b657e #131b27}
+.music-hub-track-menu-section{border-top:1px solid #304052;color:#849eb5;font-weight:800;letter-spacing:.09em;font-size:9px;padding:9px 7px 4px}
+.music-hub-track-menu-list .music-hub-track-menu-section:first-child{border-top:0}
+.music-hub-track-menu-action{display:flex;flex-direction:column;align-items:flex-start;gap:1px;width:100%;min-height:33px;padding:5px 7px;color:#eaf2fc;background:transparent;border:0;border-radius:4px;text-align:left;cursor:pointer;font:inherit}
+.music-hub-track-menu-action:hover,.music-hub-track-menu-action:focus-visible{color:#fff;background:#24486d;outline:none}
+.music-hub-track-menu-action span{font-size:11px;font-weight:680}
+.music-hub-track-menu-action small{font-size:9px;color:#95aec7}
+.music-hub-track-menu-action:focus-visible small,.music-hub-track-menu-action:hover small{color:#d2e6fc}
+.music-hub-track-menu-feedback{font-size:10px;line-height:1.4;padding:6px 7px;color:#fedda7;background:#3a2e22;border-radius:4px;min-height:0}
+.music-hub-track-menu-feedback:empty{display:none}

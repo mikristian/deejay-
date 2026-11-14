@@ -1,0 +1,24 @@
+.sampler-launch{border:1px solid #505963;background:#20262e;color:#f2f5fa;border-radius:8px;padding:7px 13px;font-weight:650;cursor:pointer}
+.sampler-launch[aria-pressed="true"]{border-color:#cdad76;background:#413626;color:#f9dfaf}
+.sampler-lab{margin:9px 20px 14px;padding:16px;border:1px solid #45464c;border-radius:14px;background:#181b20;color:#e9ebed}
+.sampler-lab[hidden]{display:none}
+.sampler-lab button,.sampler-lab select,.sampler-lab input{font:inherit}
+.sampler-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.sampler-head h2{margin:0;font-size:18px}
+.sampler-head p{color:#adb3bd;font-size:12px;margin:5px 0}
+.sampler-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.sampler-controls button,.sampler-controls select{background:#2b3038;color:#eaf0f6;border:1px solid #4b525c;border-radius:7px;padding:8px}
+.sampler-controls button[aria-pressed="true"]{background:#6d5635;color:#fff}
+.sampler-pad-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:13px}
+.sampler-pad{position:relative;min-height:95px;background:linear-gradient(145deg,#353c45,#262b32);color:#dce6ef;border:2px solid #626b75;border-radius:10px;text-align:left;padding:12px;cursor:pointer;overflow:hidden}
+.sampler-pad[data-playing="true"]{border-color:#e9b564;background:#53412e;box-shadow:inset 0 0 18px #bc823e40}
+.sampler-pad b{display:block;font-size:20px;color:#eebd70}
+.sampler-pad span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:12px;margin-top:7px}
+.sampler-pad small{font-size:10px;color:#acb6be}
+.sampler-assign{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.sampler-assign input,.sampler-assign select{background:#242931;color:#eef1f5;border:1px solid #626c76;border-radius:6px;padding:8px}
+.sampler-assign input{flex:1;min-width:155px}
+.sampler-assign button{background:#353b45;color:#fff;border:1px solid #626c76;border-radius:6px;padding:8px}
+.sampler-feedback{color:#bec6d2;font-size:12px;margin-top:9px}
+@media(max-width:600px){.sampler-pad{min-height:73px;padding:7px}.sampler-lab{margin:7px}.sampler-pad-grid{gap:5px}}
+.sampler-bridge-status{padding:8px 10px;background:#202831;border:1px solid #4f616f;border-radius:7px;margin:8px 0 5px;color:#d3e4ef;font-size:12px;line-height:1.5}
