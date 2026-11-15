@@ -52,8 +52,32 @@ Python service tests have environmental prerequisites. See [STATUS.md](STATUS.md
 
 See [third-party notices](THIRD_PARTY_NOTICES.md) for external components and attribution. This project is not affiliated with AlphaTheta, Pioneer DJ, or any music provider.
 
-## UI preview
+## UI previews
 
-![Music Hub local browser preview with empty library and unverified decks](docs/screenshots/music-hub-disconnected.png)
+These are fresh screenshots from the **staged source HTML**, captured in a separate headless Chrome browser at desktop (1440 × 900) and phone (390 × 844) viewport sizes on 2026-11-14. The views use an empty/disconnected local library; there are no user playlists, tracks, audio files or authenticated provider accounts.
 
-*Actual browser capture of the staged HTML in a disconnected local preview, 2026-11-14. No songs, user playlists, live hardware status or backend connection are demonstrated. On-screen bridge labels are UI state only and are not proof of a connected controller.*
+### Desktop library: disconnected collection
+
+![Music Hub desktop library, zero songs, search, library navigation and unavailable-backend state](docs/screenshots/music-hub-desktop-library.png)
+
+The desktop library provides navigation, playlist categories, searchable columns and filters. The local API was unavailable during capture; no imported songs or live library synchronization is shown.
+
+### Desktop DJ workspace: unverified performance panels
+
+![Music Hub desktop performance UI with dual deck previews, effects controls and empty track library](docs/screenshots/music-hub-desktop-performance.png)
+
+The staged interface includes dual deck displays, performance preview, mixer layout, and FX/filter controls. All tracks and waveforms are unverified/unavailable; these controls are **UI previews**. Some displayed bridge/status text originates from local frontend state and **does not demonstrate physical FLX4 communication, audio playback or hardware control**.
+
+### Mobile companion: library and pairing
+
+![Music Hub mobile companion library with connect to laptop pairing prompt and empty songs](docs/screenshots/music-hub-mobile-library.png)
+
+The responsive companion shows phone pairing, an unverified two-deck overview, category chips, and an empty Browse tab. Pairing was not completed and no desktop server connection was established.
+
+### Mobile companion: deck intentions
+
+![Music Hub mobile companion Decks tab with unverified deck targeting options](docs/screenshots/music-hub-mobile-decks.png)
+
+The Decks tab exposes the two-deck targeting interface and describes its intent queue. This does not establish that a physical deck was loaded or that live feedback was received.
+
+A prior source-browser screenshot is also retained for comparison: [initial disconnected browser preview](docs/screenshots/music-hub-disconnected.png).
