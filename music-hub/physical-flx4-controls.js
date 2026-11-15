@@ -90,7 +90,12 @@
     const label=$('physical-flx4-status');
     if(label)label.textContent=message;
     const toggle=$('physical-flx4-toggle');
-    if(toggle){toggle.textContent=enabled?'FLX4 → HUB ON':'FLX4 → HUB OFF';toggle.setAttribute('aria-pressed',String(enabled));}
+    if(toggle){
+      toggle.textContent=enabled?'FLX4 · ON':'FLX4 · OFF';
+      toggle.setAttribute('aria-pressed',String(enabled));
+      toggle.setAttribute('aria-label','Physical FLX4 Hub '+(enabled?'on':'off')+'. Click to '+(enabled?'disable':'enable'));
+      toggle.title=message+' · Click to '+(enabled?'disable':'enable')+' FLX4 Hub';
+    }
     const dot=$('physical-flx4-dot');
     if(dot){dot.dataset.state=!enabled?'off':ready&&midiConnected?'connected':'waiting';}
   }
@@ -382,8 +387,8 @@
     }
   }
   function init(){
-    // Library Focus hides .performance-top completely. Put connection state
-    // in an always-visible floating toolbar, even in compact/browse mode.
+    // Library Focus hides .performance-top and the main toolbar. Keep a small
+    // FLX4 control in the sidebar footer without overlaying the song library.
     if($('physical-flx4-toggle'))return;
     const panel=document.createElement('section');
     panel.id='physical-flx4-panel';panel.className='physical-flx4-panel';
@@ -393,8 +398,7 @@
     indicator.setAttribute('aria-hidden','true');
     const button=document.createElement('button');
     button.id='physical-flx4-toggle';button.type='button';button.className='physical-flx4-toggle';
-    button.textContent='FLX4 → HUB ON';button.setAttribute('aria-pressed','true');
-    button.title='Physical browse wheel, LOAD and PLAY control Music Hub local audio. Tap to disable when using Rekordbox.';
+    button.textContent='FLX4 · ON';button.setAttribute('aria-pressed','true');
     const status=document.createElement('small');status.id='physical-flx4-status';
     status.className='physical-flx4-status';status.setAttribute('role','status');
     status.textContent='Connecting to the physical DDJ-FLX4…';
@@ -404,7 +408,7 @@
     sweep.className='physical-flx4-status';
     sweep.textContent='Physical fader test: LEFT ○  CENTER ○  RIGHT ○';
     panel.append(indicator,button,status,mode,sweep);
-    document.body.append(panel);
+    (document.querySelector?.('.sidebar-bottom')||document.body).append(panel);
     button.addEventListener('click',toggle);
     output('Connecting to the physical DDJ-FLX4…');
     connect();

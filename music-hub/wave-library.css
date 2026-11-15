@@ -76,23 +76,23 @@
 .shell>.performance .performance-top .physical-flx4-status{
   color:#a8b9aa;font:600 9px/13px system-ui,sans-serif;max-width:220px;
   white-space:normal;min-width:90px}
-/* Always visible in Library Focus (which hides the performance-top). */
-.physical-flx4-panel{position:fixed;right:16px;bottom:88px;z-index:950;
-  width:min(325px,calc(100vw - 32px));padding:10px 12px;display:grid;
-  grid-template-columns:9px minmax(0,1fr);column-gap:9px;row-gap:5px;
-  align-items:center;background:#10201a;border:1px solid #548168;
-  border-radius:12px;box-shadow:0 12px 34px #000b;color:#e7fff0;
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-.physical-flx4-panel .physical-flx4-dot{grid-row:1/3;width:9px;height:9px;
-  border-radius:50%;background:#d7a55d}
-.physical-flx4-panel .physical-flx4-dot[data-state=connected]{background:#72f3ac;box-shadow:0 0 10px #72f3ac88}
+/* Compact footer control: no persistent green floating card over the library. */
+.sidebar-bottom{flex-wrap:wrap}
+.physical-flx4-panel{position:fixed;right:12px;bottom:12px;z-index:950;
+  display:inline-flex;align-items:center;gap:6px;width:max-content;max-width:116px;
+  padding:4px 7px;background:var(--surface,#171d24);border:1px solid var(--border,#394451);
+  border-radius:6px;box-shadow:none;color:var(--ink,#cdd7e3)}
+.sidebar-bottom .physical-flx4-panel{position:static;flex:0 0 auto;margin:5px 0 0 auto}
+.physical-flx4-panel .physical-flx4-dot{flex:0 0 auto;width:6px;height:6px;
+  border-radius:50%;background:#b79664}
+.physical-flx4-panel .physical-flx4-dot[data-state=connected]{background:#72c99b}
 .physical-flx4-panel .physical-flx4-dot[data-state=off]{background:#969c97;box-shadow:none}
-.physical-flx4-panel .physical-flx4-toggle{justify-self:start;background:none;border:0;
-  padding:1px 0;color:#caffda;font:800 12px system-ui,sans-serif;cursor:pointer}
-.physical-flx4-panel .physical-flx4-toggle[aria-pressed=false]{color:#ddd3b8}
-.physical-flx4-panel .physical-flx4-toggle:focus-visible{outline:2px solid #b5ffcb;outline-offset:3px}
-.physical-flx4-panel .physical-flx4-status{grid-column:2;color:#b5d1bd;
-  font:600 10px/1.4 system-ui,sans-serif;overflow:hidden;max-height:28px}
+.physical-flx4-panel .physical-flx4-toggle{background:none;border:0;
+  padding:0;color:var(--ink,#dbe0e8);font:700 10px/16px system-ui,sans-serif;cursor:pointer;white-space:nowrap}
+.physical-flx4-panel .physical-flx4-toggle[aria-pressed=false]{color:var(--muted,#9297a4)}
+.physical-flx4-panel .physical-flx4-toggle:focus-visible{outline:2px solid var(--accent,#a7c9ef);outline-offset:3px}
+.physical-flx4-panel .physical-flx4-status{position:absolute;width:1px;height:1px;
+  overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 @media(max-width:640px){
  .shell>.performance:not(.expanded) .deck{grid-template-rows:14px 46px 30px 22px 24px!important}
  .shell>.performance .deck>.top-decks-scrub-row{gap:2px;padding:0 1px!important}

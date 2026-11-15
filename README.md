@@ -4,6 +4,29 @@ A local DJ library and performance-planning workspace with a web frontend, Pytho
 
 Music Hub is a **source release for developers**. The UI and its static code can be inspected independently, while music-library integration, installed-app parity and physical controller feedback still require local setup and further verification.
 
+## Music Hub on MacBook and iPhone
+
+These **eight screenshots from November 14, 2026** show the actual Music Hub interface in use: two MacBook captures and six iPhone companion views. The Mac library displays 12,393 indexed tracks, while the phone shows deck targeting, song and playlist browsing, and an individual playlist. All images are from the running local UI, with original pixels preserved and embedded photo metadata removed before publication. Click an image to inspect it at full resolution.
+
+### MacBook · performance and music library
+
+[![Music Hub running on a MacBook with dual decks, waveforms, performance controls, and a populated song library](docs/screenshots/live-2026-11-14/mac-dj-performance-and-library.png)](docs/screenshots/live-2026-11-14/mac-dj-performance-and-library.png)
+
+*Performance monitor, decks A/B, local preview, mixer, expanded waveforms, compact FLX4 status control and song library.*
+
+[![Music Hub MacBook library with playlist sidebar, filters, waveform previews, and a populated track list](docs/screenshots/live-2026-11-14/mac-song-library.png)](docs/screenshots/live-2026-11-14/mac-song-library.png)
+
+*Full-library view with track metadata, album, BPM, key, previews, and playlist navigation.*
+
+### iPhone · DJ companion and library
+
+<table>
+<tr><td align="center"><a href="docs/screenshots/live-2026-11-14/iphone-dj-decks.png"><img src="docs/screenshots/live-2026-11-14/iphone-dj-decks.png" width="270" alt="Music Hub iPhone DJ view with two turntable platters and local mixer" /></a><br /><strong>DJ decks and mixer</strong></td><td align="center"><a href="docs/screenshots/live-2026-11-14/iphone-library-home.png"><img src="docs/screenshots/live-2026-11-14/iphone-library-home.png" width="270" alt="Music Hub iPhone Library home showing categories and deck B load target" /></a><br /><strong>Library categories</strong></td><td align="center"><a href="docs/screenshots/live-2026-11-14/iphone-deck-b-library.png"><img src="docs/screenshots/live-2026-11-14/iphone-deck-b-library.png" width="270" alt="Music Hub iPhone library with Deck B track selection and laptop preview controls" /></a><br /><strong>Choose a deck</strong></td></tr>
+<tr><td align="center"><a href="docs/screenshots/live-2026-11-14/iphone-all-songs.png"><img src="docs/screenshots/live-2026-11-14/iphone-all-songs.png" width="270" alt="Music Hub iPhone searchable All Songs screen with a populated track list" /></a><br /><strong>All songs and search</strong></td><td align="center"><a href="docs/screenshots/live-2026-11-14/iphone-playlists.png"><img src="docs/screenshots/live-2026-11-14/iphone-playlists.png" width="270" alt="Music Hub iPhone playlist browser showing local playlists and song counts" /></a><br /><strong>Playlist browser</strong></td><td align="center"><a href="docs/screenshots/live-2026-11-14/iphone-playlist-detail.png"><img src="docs/screenshots/live-2026-11-14/iphone-playlist-detail.png" width="270" alt="Music Hub iPhone playlist artwork and track list with Load first track on Deck B" /></a><br /><strong>Playlist details</strong></td></tr>
+</table>
+
+The iPhone captures display **Music Hub connected** to the local library, while explicitly reporting **no confirmed laptop deck preview** and unverified Rekordbox native deck position. These pictures document real screens and visible library data; they are not a claim of verified physical FLX4 input, output audio, or independent installed-app parity. Audio files, library databases, authentication credentials, and personal machine paths are not included in this repository.
+
 ## What is in the source
 
 | Area | Source | Functionality and scope |
@@ -52,32 +75,6 @@ Python service tests have environmental prerequisites. See [STATUS.md](STATUS.md
 
 See [third-party notices](THIRD_PARTY_NOTICES.md) for external components and attribution. This project is not affiliated with AlphaTheta, Pioneer DJ, or any music provider.
 
-## UI previews
+## Offline source previews
 
-These are fresh screenshots from the **staged source HTML**, captured in a separate headless Chrome browser at desktop (1440 × 900) and phone (390 × 844) viewport sizes on 2026-11-14. The views use an empty/disconnected local library; there are no user playlists, tracks, audio files or authenticated provider accounts.
-
-### Desktop library: disconnected collection
-
-![Music Hub desktop library, zero songs, search, library navigation and unavailable-backend state](docs/screenshots/music-hub-desktop-library.png)
-
-The desktop library provides navigation, playlist categories, searchable columns and filters. The local API was unavailable during capture; no imported songs or live library synchronization is shown.
-
-### Desktop DJ workspace: unverified performance panels
-
-![Music Hub desktop performance UI with dual deck previews, effects controls and empty track library](docs/screenshots/music-hub-desktop-performance.png)
-
-The staged interface includes dual deck displays, performance preview, mixer layout, and FX/filter controls. All tracks and waveforms are unverified/unavailable; these controls are **UI previews**. Some displayed bridge/status text originates from local frontend state and **does not demonstrate physical FLX4 communication, audio playback or hardware control**.
-
-### Mobile companion: library and pairing
-
-![Music Hub mobile companion library with connect to laptop pairing prompt and empty songs](docs/screenshots/music-hub-mobile-library.png)
-
-The responsive companion shows phone pairing, an unverified two-deck overview, category chips, and an empty Browse tab. Pairing was not completed and no desktop server connection was established.
-
-### Mobile companion: deck intentions
-
-![Music Hub mobile companion Decks tab with unverified deck targeting options](docs/screenshots/music-hub-mobile-decks.png)
-
-The Decks tab exposes the two-deck targeting interface and describes its intent queue. This does not establish that a physical deck was loaded or that live feedback was received.
-
-A prior source-browser screenshot is also retained for comparison: [initial disconnected browser preview](docs/screenshots/music-hub-disconnected.png).
+For reproducible source-only inspection, disconnected Chrome screenshots are retained separately: [desktop library](docs/screenshots/music-hub-desktop-library.png), [desktop performance](docs/screenshots/music-hub-desktop-performance.png), [mobile library](docs/screenshots/music-hub-mobile-library.png), [mobile decks](docs/screenshots/music-hub-mobile-decks.png), and [initial source browser](docs/screenshots/music-hub-disconnected.png). These are earlier empty-state captures, distinct from the running MacBook and iPhone screenshots above.
